@@ -14,9 +14,7 @@
   limitations under the License.
 
 ==============================================================================*/
-
-#ifndef __qSlicerLibSurfaceFlowModule_h
-#define __qSlicerLibSurfaceFlowModule_h
+#pragma once
 
 // Slicer includes
 #include "qSlicerLoadableModule.h"
@@ -26,37 +24,36 @@
 class qSlicerLibSurfaceFlowModulePrivate;
 
 class Q_SLICER_QTMODULES_LIBSURFACEFLOW_EXPORT
-qSlicerLibSurfaceFlowModule
-  : public qSlicerLoadableModule
-{
+    qSlicerLibSurfaceFlowModule
+    : public qSlicerLoadableModule {
   Q_OBJECT
   Q_PLUGIN_METADATA(IID "org.slicer.modules.loadable.qSlicerLoadableModule/1.0");
   Q_INTERFACES(qSlicerLoadableModule);
 
 public:
-
   typedef qSlicerLoadableModule Superclass;
-  explicit qSlicerLibSurfaceFlowModule(QObject *parent=nullptr);
+  explicit qSlicerLibSurfaceFlowModule(QObject* parent = nullptr);
   ~qSlicerLibSurfaceFlowModule() override;
+
+  [[nodiscard]] bool isHidden() const override;
 
   qSlicerGetTitleMacro(tr("LibSurfaceFlow"));
 
-  QString helpText()const override;
-  QString acknowledgementText()const override;
-  QStringList contributors()const override;
+  [[nodiscard]] QString helpText() const override;
+  [[nodiscard]] QString acknowledgementText() const override;
+  [[nodiscard]] QStringList contributors() const override;
 
-  QIcon icon()const override;
+  [[nodiscard]] QIcon icon() const override;
 
-  QStringList categories()const override;
-  QStringList dependencies() const override;
+  [[nodiscard]] QStringList categories() const override;
+  [[nodiscard]] QStringList dependencies() const override;
 
 protected:
-
   /// Initialize the module. Register the volumes reader/writer
   void setup() override;
 
   /// Create and return the widget representation associated to this module
-  qSlicerAbstractModuleRepresentation * createWidgetRepresentation() override;
+  qSlicerAbstractModuleRepresentation* createWidgetRepresentation() override;
 
   /// Create and return the logic associated to this module
   vtkMRMLAbstractLogic* createLogic() override;
@@ -67,7 +64,4 @@ protected:
 private:
   Q_DECLARE_PRIVATE(qSlicerLibSurfaceFlowModule);
   Q_DISABLE_COPY(qSlicerLibSurfaceFlowModule);
-
 };
-
-#endif

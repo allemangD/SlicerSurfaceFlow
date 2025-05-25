@@ -15,96 +15,62 @@
 
 ==============================================================================*/
 
-// LibSurfaceFlow Logic includes
 #include <vtkSlicerLibSurfaceFlowLogic.h>
 
-// LibSurfaceFlow includes
 #include "qSlicerLibSurfaceFlowModule.h"
-#include "qSlicerLibSurfaceFlowModuleWidget.h"
 
-//-----------------------------------------------------------------------------
-class qSlicerLibSurfaceFlowModulePrivate
-{
+class qSlicerLibSurfaceFlowModulePrivate {
 public:
   qSlicerLibSurfaceFlowModulePrivate();
 };
 
-//-----------------------------------------------------------------------------
-// qSlicerLibSurfaceFlowModulePrivate methods
+qSlicerLibSurfaceFlowModulePrivate::qSlicerLibSurfaceFlowModulePrivate() = default;
 
-//-----------------------------------------------------------------------------
-qSlicerLibSurfaceFlowModulePrivate::qSlicerLibSurfaceFlowModulePrivate()
-{
-}
-
-//-----------------------------------------------------------------------------
-// qSlicerLibSurfaceFlowModule methods
-
-//-----------------------------------------------------------------------------
 qSlicerLibSurfaceFlowModule::qSlicerLibSurfaceFlowModule(QObject* _parent)
   : Superclass(_parent)
-  , d_ptr(new qSlicerLibSurfaceFlowModulePrivate)
-{
+    , d_ptr(new qSlicerLibSurfaceFlowModulePrivate) {
+  setWidgetRepresentationCreationEnabled(false);
 }
 
-//-----------------------------------------------------------------------------
-qSlicerLibSurfaceFlowModule::~qSlicerLibSurfaceFlowModule()
-{
+qSlicerLibSurfaceFlowModule::~qSlicerLibSurfaceFlowModule() = default;
+
+bool qSlicerLibSurfaceFlowModule::isHidden() const {
+  return true;
 }
 
-//-----------------------------------------------------------------------------
-QString qSlicerLibSurfaceFlowModule::helpText() const
-{
-  return "This is a loadable module that can be bundled in an extension";
+QString qSlicerLibSurfaceFlowModule::helpText() const {
+  return "Provides C++ implementations of surface flows.";
 }
 
-//-----------------------------------------------------------------------------
-QString qSlicerLibSurfaceFlowModule::acknowledgementText() const
-{
-  return "This work was partially funded by NIH grant NXNNXXNNNNNN-NNXN";
+QString qSlicerLibSurfaceFlowModule::acknowledgementText() const {
+  return "This work is done as a course project for COMP 766 with Dr. Steve Pizer.";
 }
 
-//-----------------------------------------------------------------------------
-QStringList qSlicerLibSurfaceFlowModule::contributors() const
-{
+QStringList qSlicerLibSurfaceFlowModule::contributors() const {
   QStringList moduleContributors;
-  moduleContributors << QString("John Doe (AnyWare Corp.)");
+  moduleContributors << QString("David Allemang (University of North Carolina at Chapel Hill)");
   return moduleContributors;
 }
 
-//-----------------------------------------------------------------------------
-QIcon qSlicerLibSurfaceFlowModule::icon() const
-{
+QIcon qSlicerLibSurfaceFlowModule::icon() const {
   return QIcon(":/Icons/LibSurfaceFlow.png");
 }
 
-//-----------------------------------------------------------------------------
-QStringList qSlicerLibSurfaceFlowModule::categories() const
-{
-  return QStringList() << "Examples";
+QStringList qSlicerLibSurfaceFlowModule::categories() const {
+  return {"Surface Flow"};
 }
 
-//-----------------------------------------------------------------------------
-QStringList qSlicerLibSurfaceFlowModule::dependencies() const
-{
-  return QStringList();
+QStringList qSlicerLibSurfaceFlowModule::dependencies() const {
+  return {};
 }
 
-//-----------------------------------------------------------------------------
-void qSlicerLibSurfaceFlowModule::setup()
-{
-  this->Superclass::setup();
-}
+void qSlicerLibSurfaceFlowModule::setup() { this->Superclass::setup(); }
 
-//-----------------------------------------------------------------------------
 qSlicerAbstractModuleRepresentation* qSlicerLibSurfaceFlowModule
-::createWidgetRepresentation()
-{
-  return new qSlicerLibSurfaceFlowModuleWidget;
+::createWidgetRepresentation() {
+  return nullptr;
 }
 
-//-----------------------------------------------------------------------------
-vtkMRMLAbstractLogic* qSlicerLibSurfaceFlowModule::createLogic()
-{
+vtkMRMLAbstractLogic* qSlicerLibSurfaceFlowModule::createLogic() {
   return vtkSlicerLibSurfaceFlowLogic::New();
 }

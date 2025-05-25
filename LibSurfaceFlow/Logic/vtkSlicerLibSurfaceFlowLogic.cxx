@@ -15,42 +15,26 @@
 
 ==============================================================================*/
 
-// LibSurfaceFlow Logic includes
 #include "vtkSlicerLibSurfaceFlowLogic.h"
 
-// MRML includes
 #include <vtkMRMLScene.h>
-
-// VTK includes
 #include <vtkIntArray.h>
 #include <vtkNew.h>
 #include <vtkObjectFactory.h>
 
-// STD includes
 #include <cassert>
 
-//----------------------------------------------------------------------------
 vtkStandardNewMacro(vtkSlicerLibSurfaceFlowLogic);
 
-//----------------------------------------------------------------------------
-vtkSlicerLibSurfaceFlowLogic::vtkSlicerLibSurfaceFlowLogic()
-{
-}
+vtkSlicerLibSurfaceFlowLogic::vtkSlicerLibSurfaceFlowLogic() = default;
 
-//----------------------------------------------------------------------------
-vtkSlicerLibSurfaceFlowLogic::~vtkSlicerLibSurfaceFlowLogic()
-{
-}
+vtkSlicerLibSurfaceFlowLogic::~vtkSlicerLibSurfaceFlowLogic() = default;
 
-//----------------------------------------------------------------------------
-void vtkSlicerLibSurfaceFlowLogic::PrintSelf(ostream& os, vtkIndent indent)
-{
+void vtkSlicerLibSurfaceFlowLogic::PrintSelf(ostream& os, vtkIndent indent) {
   this->Superclass::PrintSelf(os, indent);
 }
 
-//---------------------------------------------------------------------------
-void vtkSlicerLibSurfaceFlowLogic::SetMRMLSceneInternal(vtkMRMLScene * newScene)
-{
+void vtkSlicerLibSurfaceFlowLogic::SetMRMLSceneInternal(vtkMRMLScene* newScene) {
   vtkNew<vtkIntArray> events;
   events->InsertNextValue(vtkMRMLScene::NodeAddedEvent);
   events->InsertNextValue(vtkMRMLScene::NodeRemovedEvent);
@@ -58,26 +42,14 @@ void vtkSlicerLibSurfaceFlowLogic::SetMRMLSceneInternal(vtkMRMLScene * newScene)
   this->SetAndObserveMRMLSceneEventsInternal(newScene, events.GetPointer());
 }
 
-//-----------------------------------------------------------------------------
-void vtkSlicerLibSurfaceFlowLogic::RegisterNodes()
-{
+void vtkSlicerLibSurfaceFlowLogic::RegisterNodes() {
   assert(this->GetMRMLScene() != 0);
 }
 
-//---------------------------------------------------------------------------
-void vtkSlicerLibSurfaceFlowLogic::UpdateFromMRMLScene()
-{
+void vtkSlicerLibSurfaceFlowLogic::UpdateFromMRMLScene() {
   assert(this->GetMRMLScene() != 0);
 }
 
-//---------------------------------------------------------------------------
-void vtkSlicerLibSurfaceFlowLogic
-::OnMRMLSceneNodeAdded(vtkMRMLNode* vtkNotUsed(node))
-{
-}
+void vtkSlicerLibSurfaceFlowLogic::OnMRMLSceneNodeAdded(vtkMRMLNode* vtkNotUsed(node)) {}
 
-//---------------------------------------------------------------------------
-void vtkSlicerLibSurfaceFlowLogic
-::OnMRMLSceneNodeRemoved(vtkMRMLNode* vtkNotUsed(node))
-{
-}
+void vtkSlicerLibSurfaceFlowLogic::OnMRMLSceneNodeRemoved(vtkMRMLNode* vtkNotUsed(node)) {}

@@ -15,14 +15,7 @@
 
 ==============================================================================*/
 
-// .NAME vtkSlicerLibSurfaceFlowLogic - slicer logic class for volumes manipulation
-// .SECTION Description
-// This class manages the logic associated with reading, saving,
-// and changing propertied of the volumes
-
-
-#ifndef __vtkSlicerLibSurfaceFlowLogic_h
-#define __vtkSlicerLibSurfaceFlowLogic_h
+#pragma once
 
 // Slicer includes
 #include "vtkSlicerModuleLogic.h"
@@ -36,11 +29,9 @@
 
 
 class VTK_SLICER_LIBSURFACEFLOW_MODULE_LOGIC_EXPORT vtkSlicerLibSurfaceFlowLogic :
-  public vtkSlicerModuleLogic
-{
+    public vtkSlicerModuleLogic {
 public:
-
-  static vtkSlicerLibSurfaceFlowLogic *New();
+  static vtkSlicerLibSurfaceFlowLogic* New();
   vtkTypeMacro(vtkSlicerLibSurfaceFlowLogic, vtkSlicerModuleLogic);
   void PrintSelf(ostream& os, vtkIndent indent) override;
 
@@ -54,10 +45,8 @@ protected:
   void UpdateFromMRMLScene() override;
   void OnMRMLSceneNodeAdded(vtkMRMLNode* node) override;
   void OnMRMLSceneNodeRemoved(vtkMRMLNode* node) override;
-private:
 
-  vtkSlicerLibSurfaceFlowLogic(const vtkSlicerLibSurfaceFlowLogic&); // Not implemented
-  void operator=(const vtkSlicerLibSurfaceFlowLogic&); // Not implemented
+public:
+  vtkSlicerLibSurfaceFlowLogic(const vtkSlicerLibSurfaceFlowLogic&) = delete;
+  void operator=(const vtkSlicerLibSurfaceFlowLogic&) = delete;
 };
-
-#endif
