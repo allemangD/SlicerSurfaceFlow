@@ -1,0 +1,3 @@
+[tool.black]
+line-length = 110  # Default 88 is a bit too short.
+target-version = ['py39']
