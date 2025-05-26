@@ -17,12 +17,16 @@
 
 #include "vtkSlicerLibSurfaceFlowLogic.h"
 
+#include <qlogging.h>
 #include <vtkMRMLScene.h>
 #include <vtkIntArray.h>
 #include <vtkNew.h>
 #include <vtkObjectFactory.h>
 
 #include <cassert>
+
+#include <Eigen/Eigen>
+#include <igl/cotmatrix.h>
 
 vtkStandardNewMacro(vtkSlicerLibSurfaceFlowLogic);
 
@@ -32,6 +36,10 @@ vtkSlicerLibSurfaceFlowLogic::~vtkSlicerLibSurfaceFlowLogic() = default;
 
 void vtkSlicerLibSurfaceFlowLogic::PrintSelf(ostream& os, vtkIndent indent) {
   this->Superclass::PrintSelf(os, indent);
+}
+
+void vtkSlicerLibSurfaceFlowLogic::DoSomething() {
+  qInfo("Hello World!");
 }
 
 void vtkSlicerLibSurfaceFlowLogic::SetMRMLSceneInternal(vtkMRMLScene* newScene) {

@@ -27,26 +27,28 @@
 
 #include "vtkSlicerLibSurfaceFlowModuleLogicExport.h"
 
-
 class VTK_SLICER_LIBSURFACEFLOW_MODULE_LOGIC_EXPORT vtkSlicerLibSurfaceFlowLogic :
-    public vtkSlicerModuleLogic {
+    public vtkSlicerModuleLogic
+{
 public:
-  static vtkSlicerLibSurfaceFlowLogic* New();
-  vtkTypeMacro(vtkSlicerLibSurfaceFlowLogic, vtkSlicerModuleLogic);
-  void PrintSelf(ostream& os, vtkIndent indent) override;
+    static vtkSlicerLibSurfaceFlowLogic* New();
+    vtkTypeMacro(vtkSlicerLibSurfaceFlowLogic, vtkSlicerModuleLogic);
+    void PrintSelf(ostream& os, vtkIndent indent) override;
+
+    void DoSomething();
 
 protected:
-  vtkSlicerLibSurfaceFlowLogic();
-  ~vtkSlicerLibSurfaceFlowLogic() override;
+    vtkSlicerLibSurfaceFlowLogic();
+    ~vtkSlicerLibSurfaceFlowLogic() override;
 
-  void SetMRMLSceneInternal(vtkMRMLScene* newScene) override;
-  /// Register MRML Node classes to Scene. Gets called automatically when the MRMLScene is attached to this logic class.
-  void RegisterNodes() override;
-  void UpdateFromMRMLScene() override;
-  void OnMRMLSceneNodeAdded(vtkMRMLNode* node) override;
-  void OnMRMLSceneNodeRemoved(vtkMRMLNode* node) override;
+    void SetMRMLSceneInternal(vtkMRMLScene* newScene) override;
+    /// Register MRML Node classes to Scene. Gets called automatically when the MRMLScene is attached to this logic class.
+    void RegisterNodes() override;
+    void UpdateFromMRMLScene() override;
+    void OnMRMLSceneNodeAdded(vtkMRMLNode* node) override;
+    void OnMRMLSceneNodeRemoved(vtkMRMLNode* node) override;
 
 public:
-  vtkSlicerLibSurfaceFlowLogic(const vtkSlicerLibSurfaceFlowLogic&) = delete;
-  void operator=(const vtkSlicerLibSurfaceFlowLogic&) = delete;
+    vtkSlicerLibSurfaceFlowLogic(const vtkSlicerLibSurfaceFlowLogic&) = delete;
+    void operator=(const vtkSlicerLibSurfaceFlowLogic&) = delete;
 };

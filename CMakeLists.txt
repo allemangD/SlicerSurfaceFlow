@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 3.16.3...3.19.7 FATAL_ERROR)
 
 project(SlicerSurfaceFlow)
 
+set(CMAKE_CXX_STANDARD 17)
+list(PREPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+include(libigl)
+
 #-----------------------------------------------------------------------------
 # Extension meta-information
 set(EXTENSION_HOMEPAGE "https://github.com/allemangd/SlicerSurfaceFlow")
